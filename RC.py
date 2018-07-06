@@ -41,6 +41,14 @@ space = 20
 for i in range(stripe_count):
     stripes.append([385, stripe_y])
     stripe_y += stripe_height + space
+#constructing main menu background
+class Background(pygame.sprite.Sprite):
+    def __init__(self, image_file, location):
+        pygame.sprite.Sprite.__init__(self)  #call Sprite initializer
+        self.image = pygame.image.load(image_file)
+        self.rect = self.image.get_rect()
+        self.rect.left, self.rect.top = location
+
 
 def quitgame():
     pygame.quit()
@@ -76,7 +84,7 @@ def things(thingx, thingy, thingw, thingh, color):
     pygame.draw.rect(gameDisplay, color, [thingx, thingy, thingw, thingh])
 
 def text_objects(text, font):
-    textSurface = font.render(text, True, black)
+    textSurface = font.render(text, True, white)
     return textSurface, textSurface.get_rect()
 
 def message_display(text):
@@ -106,8 +114,11 @@ def game_intro():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        gameDisplay.blit(bgImg, (0, 0))
+
         gameDisplay.fill(grey)
+        BackGround = Background('bg.png', [0,0])
+        gameDisplay.blit(BackGround.image, BackGround.rect)
+
         largeText = pygame.font.Font('freesansbold.ttf', 60)
         TextSurf, TextRect = text_objects("Not that MOST WANTED", largeText)
         TextRect.center = ((display_width / 2), (display_height / 4))
