@@ -66,7 +66,7 @@ def button(text,x,y,w,h,ic,ac,action = None):
     else:
         pygame.draw.rect(gameDisplay, ic, (x, y, w, h))
 
-    font = pygame.font.Font("freesansbold.ttf", 20)
+    font = pygame.font.SysFont("l_10646.ttf", 20)
     textSurf, textRect = text_objects(text, font)
     textRect.center = ((x + (w / 2)), (y + (h / 2)))
     gameDisplay.blit(textSurf, textRect)
@@ -88,7 +88,7 @@ def text_objects(text, font):
     return textSurface, textSurface.get_rect()
 
 def message_display(text):
-    largeText = pygame.font.Font('freesansbold.ttf',40)
+    largeText = pygame.font.SysFont('l_10646.ttf',40)
     TextSurf, TextRect = text_objects(text, largeText)
     TextRect.center = ((display_width/2),(display_height/2))
     gameDisplay.blit(TextSurf, TextRect)
@@ -119,7 +119,7 @@ def game_intro():
         BackGround = Background('bg.png', [0,0])
         gameDisplay.blit(BackGround.image, BackGround.rect)
 
-        largeText = pygame.font.Font('freesansbold.ttf', 60)
+        largeText = pygame.font.SysFont('l_10646.ttf', 80)
         TextSurf, TextRect = text_objects("Not that MOST WANTED", largeText)
         TextRect.center = ((display_width / 2), (display_height / 4))
         gameDisplay.blit(TextSurf, TextRect)
@@ -168,7 +168,7 @@ def game_loop():
         x += x_change
         y += y_change
 
-        gameDisplay.fill(gray)
+        gameDisplay.fill(grey)
 
         things(thing_startx, thing_starty, thing_width, thing_height, block_color)
         # Draw the stripes
