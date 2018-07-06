@@ -25,7 +25,7 @@ bright_red = (255,0,0)
 car_width = 73
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
-pygame.display.set_caption('Not_That_Most_Wanted DELUXE')
+pygame.display.set_caption('Not That Most Wanted DELUXE')
 clock = pygame.time.Clock()
 
 carImg = pygame.image.load('racecar.png')
